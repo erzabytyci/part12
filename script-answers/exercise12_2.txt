@@ -1,0 +1,3 @@
+docker run -it ubuntu bash 
+echo "console.log('Hello from container');" > /usr/src/app/index.js 
+exit 
