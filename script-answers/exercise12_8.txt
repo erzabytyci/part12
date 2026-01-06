@@ -1,0 +1,9 @@
+docker exec -it todo-mongo bash 
+mongosh 
+show dbs 
+use the_database 
+show collections 
+db.todos.find({}) 
+db.todos.insertOne({ text: "Increase the number of tools in my tool belt", done: false }) 
+db.todos.find({ text: "Increase the number of tools in my tool belt" }) 
+exit 
