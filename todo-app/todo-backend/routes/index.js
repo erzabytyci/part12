@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const { getAsync } = require('../redis');
 
 const configs = require('../util/config')
 
@@ -14,5 +15,13 @@ router.get('/', async (req, res) => {
     visits
   });
 });
+
+router.get('/statistics', async (req, res) => {
+  const current = await getAsync('added_todos');
+  const addedTodos = Number(current) || 0;
+
+  res.json({ added_todos: addedTodos });
+});
+
 
 module.exports = router;
