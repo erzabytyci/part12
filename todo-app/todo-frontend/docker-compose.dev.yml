@@ -1,0 +1,14 @@
+services:
+  todo-frontend-dev:
+    build:
+      context: .
+      dockerfile: ./Dokerfile.dev
+    environment:
+      - VITE_BACKEND_URL=http://host.docker.internal:3000
+      - CHOKIDAR_USEPOLLING=true
+      - WATCHPACK_POLLING=true
+    ports:
+      - "5173:5173"
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
