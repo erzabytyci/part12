@@ -25,6 +25,7 @@ services:
       - /usr/src/app/node_modules
     expose:
       - "5173"
+    command: ["npm", "run", "dev", "--", "--host", "0.0.0.0", "--port", "5173"]
 
   todo-backend:
     image: todo-backend-dev
@@ -48,15 +49,15 @@ services:
     environment:
       - MONGO_INITDB_ROOT_USERNAME=the_username
       - MONGO_INITDB_ROOT_PASSWORD=the_password
-    ports:
-      - "3456:27017"
+    expose:
+      - "27017"
 
   redis:
     image: redis
     volumes:
       - redis-data:/data
-    ports:
-      - "6379:6379"
+    expose:
+      - "6379"
 
 volumes:
   redis-data:
