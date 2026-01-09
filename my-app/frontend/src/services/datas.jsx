@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const baseUrl = `${import.meta.env.VITE_BACKEND_URL}/persons`
+const baseUrl = `/api/persons`
 
 const getAll = () => {
     return axios.get(baseUrl).then(response => response.data.map(person => ({
